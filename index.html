@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=Orbitron:wght@400..900&family=Permanent+Marker&family=Righteous&family=Rubik+Glitch&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
   <title>M1kareal</title>
   <style>
     @font-face {
@@ -17,15 +20,7 @@
     html, body {
       height: 100%;
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       background-color: #0d111700;
-      color: #f0f6fc;
-      font-family: 'randomfontsoitsnotlocal', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 1px;
     }
 
     body::before {
@@ -41,260 +36,79 @@
       z-index: -1;
       pointer-events: none;
     }
-
-    .form-container {
-      position: relative;
-      margin-top: 2rem;
-    }
-
-    .form {
+    
+    .container {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 2rem;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      min-width: 300px;
-      animation: formSlideIn 0.5s ease-out;
-    }
-
-    .form.hidden {
-      display: none;
-    }
-
-    @keyframes formSlideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .input {
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: #f0f6fc;
-      border-radius: 12px;
-      width: 250px;
-      text-align: center;
-      outline: none;
-      transition: all 0.3s ease;
-      font-family: 'randomfontsoitsnotlocal', sans-serif;
-    }
-
-    .input:focus {
-      border-color: rgba(255, 255, 255, 0.5);
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: #f0f6fc;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-weight: 500;
-      font-family: 'randomfontsoitsnotlocal', sans-serif;
-    }
-
-    .button.red {
-      color: red;
-    }
-
-    .button:hover {
-      background: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 10;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      gap: 20px;
     }
 
-    .modal-content {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(40px);
-      -webkit-backdrop-filter: blur(40px);
-      padding: 3rem;
-      border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      max-width: 500px;
-      width: 90%;
-      color: #f0f6fc;
-      text-align: center;
-      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-      animation: modalFadeIn 0.7s ease-out;
-      position: relative;
-      overflow: hidden;
-      font-family: 'randomfontsoitsnotlocal', sans-serif;
-    }
-
-    @keyframes modalFadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9) translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      color: #aaa;
-      font-size: 24px;
-      font-weight: bold;
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
+    #coming-soon {
+      color: white;
+      font-size: clamp(2rem, 10vw, 5rem);
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      user-select: none;
+      text-transform: lowercase;
+      height: 1.2em; /* Lock height to prevent jumping */
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-      z-index: 1;
-      font-family: 'randomfontsoitsnotlocal', sans-serif;
-    }
-
-    .close:hover {
-      color: #f0f6fc;
-    }
-
-    .link-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .link-btn {
-      padding: 0.5rem 1rem;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #f0f6fc;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-family: 'randomfontsoitsnotlocal', sans-serif;
-      font-weight: 500;
       line-height: 1;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      width: auto;
-      min-width: 100px;
-      text-align: center;
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-      white-space: nowrap;
     }
 
-    .link-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    .discord-link {
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
 
-    h2 {
-      font-family: 'randomfontsoitsnotlocal', sans-serif;
+    .discord-link:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 15px rgba(255, 0, 212, 0.8));
+    }
+
+    .discord-icon {
+      width: 48px;
+      height: 48px;
+      fill: white;
     }
   </style>
 </head>
 <body>
-  <button id="open-form-btn" class="button">MC User</button>
-
-  <div class="form-container">
-    <form class="form hidden" id="minecraft-form">
-      <input type="text" class="input" id="username-input" placeholder="MC User" required>
-      <button type="submit" class="button">Search</button>
-    </form>
-  </div>
-
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="close-modal">&times;</span>
-      <div id="modal-body"></div>
-    </div>
+  <div class="container">
+    <div id="coming-soon">coming soon...</div>
+    <a href="https://discord.com/invite/VTgzJrdEsZ" class="discord-link" target="_blank" rel="noopener noreferrer">
+      <svg class="discord-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36">
+        <path d="M107.7,8.07c-7.9-3.79-16.4-6.59-25.23-8.27a.44.44,0,0,0-.47.22,74.29,74.29,0,0,0-3.28,6.74,97.07,97.07,0,0,0-29.44,0,72.67,72.67,0,0,0-3.3-6.74.45.45,0,0,0-.47-.22A105.27,105.27,0,0,0,19.24,8.07a.47.47,0,0,0-.21.18C2.51,33.15-2,57.57.43,81.58a.48.48,0,0,0,.19.34A105.6,105.6,0,0,0,32.79,98.1a.48.48,0,0,0,.52-.17,74.62,74.62,0,0,0,6.72-10.9.45.45,0,0,0-.24-.62,68.42,68.42,0,0,1-10.62-5.07.47.47,0,0,1-.05-.78c.7-.53,1.43-1.07,2.11-1.63a.47.47,0,0,1,.48-.06,75.47,75.47,0,0,0,63.62,0,.48.48,0,0,1,.49.06c.68.56,1.41,1.1,2.11,1.63a.47.47,0,0,1-.05.78,68.42,68.42,0,0,1-10.62,5.07.45.45,0,0,0-.24.62,74.62,74.62,0,0,0,6.72,10.9.48.48,0,0,0,.52.17,105.6,105.6,0,0,0,32.17-16.18.48.48,0,0,0,.19-.34c2.85-28.05-4.73-52.22-19.49-73.33A.48.48,0,0,0,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5.09-12.73,11.41-12.73S53.84,46,53.84,53,48.75,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.33,60,73.33,53s5.09-12.73,11.41-12.73S96.15,46,96.15,53,91.06,65.69,84.69,65.69Z"/>
+      </svg>
+    </a>
   </div>
 
   <script>
-    document.getElementById('open-form-btn').addEventListener('click', function() {
-      const form = document.getElementById('minecraft-form');
-      form.classList.toggle('hidden');
-      const btn = document.getElementById('open-form-btn');
-      if (form.classList.contains('hidden')) {
-        btn.textContent = 'MC User';
-        btn.classList.remove('red');
-      } else {
-        btn.textContent = 'close';
-        btn.classList.add('red');
-      }
-    });
+    const fonts = [
+      'Orbitron',
+      'Righteous',
+      '"Permanent Marker"',
+      '"Rubik Glitch"',
+      '"Metal Mania"',
+      'Creepster',
+      'Sedgwick Ave Display',
+      'randomfontsoitsnotlocal'
+    ];
 
-    document.getElementById('minecraft-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const username = document.getElementById('username-input').value.trim();
-      if (!username) return;
+    const textElement = document.getElementById('coming-soon');
+    
+    function changeFont() {
+      const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+      textElement.style.fontFamily = randomFont;
+    }
 
-      const modalBody = document.getElementById('modal-body');
-      modalBody.innerHTML = `
-        <h2>${username}</h2>
-        <div class="link-buttons">
-          <a href="https://namemc.com/profile/${username}" class="link-btn" target="_blank">NameMC</a>
-          <a href="https://laby.net/@${username}" class="link-btn" target="_blank">Laby</a>
-          <a href="https://capes.me/${username}" class="link-btn" target="_blank">Capes</a>
-          <a href="https://minecraft-statistic.net/en/search/?q=${username}" class="link-btn" target="_blank">Statistics</a>
-          <a href="https://hypixel.net/player/${username}" class="link-btn" target="_blank">Hypixel</a>
-          <a href="https://plancke.io/hypixel/player/stats/${username}" class="link-btn" target="_blank">Plancke</a>
-        </div>
-      `;
-      document.getElementById('modal').style.display = 'flex';
-    });
-
-    document.getElementById('close-modal').addEventListener('click', function() {
-      document.getElementById('modal').style.display = 'none';
-    });
-
-    window.addEventListener('click', function(e) {
-      const modal = document.getElementById('modal');
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-    });
+    // Change font every 150ms
+    setInterval(changeFont, 150);
+    
+    // Initial call
+    changeFont();
   </script>
 </body>
 </html>
