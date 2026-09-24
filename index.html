@@ -52,7 +52,7 @@
       text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
       user-select: none;
       text-transform: lowercase;
-      height: 1.2em; /* Lock height to prevent jumping */
+      height: 1.2em;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -104,10 +104,8 @@
       textElement.style.fontFamily = randomFont;
     }
 
-    // Change font every 150ms
-    setInterval(changeFont, 150);
+    setInterval(changeFont, 100);
     
-    // Initial call
     changeFont();
   </script>
 </body>
